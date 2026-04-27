@@ -1,0 +1,1 @@
+UPDATE profiles SET referred_by = affiliate_code, affiliate_code = NULL WHERE email = '1234@gmail.com' AND affiliate_code = 'UE29183X';

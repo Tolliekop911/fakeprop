@@ -1,0 +1,1 @@
+ALTER TABLE public.coupon_codes ADD COLUMN applicable_account_sizes integer[] DEFAULT NULL;

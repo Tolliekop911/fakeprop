@@ -1,0 +1,1 @@
+ALTER TABLE public.payouts ADD COLUMN full_amount numeric;

@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root,
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 68% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 68% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 25%;
+    --ring: 0 68% 58%;
+
+    --radius: 0.75rem;
+
+    /* Custom design tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(0 68% 58% / 0.15), hsl(0 68% 45% / 0.05));
+    --card-gradient: linear-gradient(180deg, hsl(0 0% 12%), hsl(0 0% 10%));
+    --glow-red: 0 0 60px hsl(0 68% 58% / 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Broker green theme */
+    --broker-primary: 145 80% 45%;
+    --broker-primary-foreground: 0 0% 100%;
+    --glow-green: 0 0 60px hsl(145 80% 45% / 0.3);
+  }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 0 68% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 94%;
+    --secondary-foreground: 0 0% 15%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 68% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 90%;
+    --ring: 0 68% 50%;
+
+    /* Light mode custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(0 68% 58% / 0.08), hsl(0 68% 45% / 0.03));
+    --card-gradient: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --glow-red: 0 0 40px hsl(0 68% 58% / 0.15);
+    
+    /* Broker green theme light */
+    --broker-primary: 145 80% 35%;
+    --broker-primary-foreground: 0 0% 100%;
+    --glow-green: 0 0 40px hsl(145 80% 45% / 0.15);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  /* Ensure embedded TradingView widgets truly fill their containers */
+  .tradingview-widget-container,
+  .tradingview-widget-container__widget,
+  .tradingview-widget-container iframe {
+    height: 100% !important;
+    width: 100% !important;
+    display: block;
+  }
+
+  /* Prevent flex/overflow quirks from shrinking embedded chart canvas */
+  .tradingview-widget-container {
+    position: relative;
+    min-height: 0;
+    min-width: 0;
+  }
+}
+
+@keyframes slide-down {
+  0% { transform: translateY(-30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@layer utilities {
+  .text-gradient-red {
+    @apply bg-gradient-to-r from-primary to-red-400 bg-clip-text text-transparent;
+  }
+  
+  .text-gradient-green {
+    @apply bg-gradient-to-r from-broker-primary to-emerald-400 bg-clip-text text-transparent;
+  }
+  
+  .hero-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(0 68% 58% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(0 68% 48% / 0.08) 0%, transparent 50%);
+  }
+  
+  .hero-pattern-green {
+    background-image: 
+      radial-gradient(circle at 20% 50%, hsl(145 80% 45% / 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, hsl(145 80% 35% / 0.08) 0%, transparent 50%);
+  }
+}

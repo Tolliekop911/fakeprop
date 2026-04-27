@@ -1,0 +1,19 @@
+project_id = "wcbotdvqduvqlvnaytwx"
+
+[functions.get-market-price]
+verify_jwt = false
+
+[functions.chat-ai]
+verify_jwt = false
+
+[functions.admin-chat-reply]
+verify_jwt = false
+
+[functions.wct-callback]
+verify_jwt = false
+
+[functions.create-challenge-account]
+verify_jwt = false
+
+[functions.manage-condor-account]
+verify_jwt = false
