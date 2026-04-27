@@ -414,7 +414,7 @@ const CheckoutModal = ({
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="max-w-lg">
+      <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
 
         {/* ── ORDER FORM VIEW ── */}
         {view === "order" && (
